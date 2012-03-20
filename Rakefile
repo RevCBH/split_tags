@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "split_tags"
   gem.homepage = "http://github.com/RevCBH/split_tags"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Helps ensure tag fields are stored as arrays in mongomodel even if serialized as a string from a client.}
+  gem.description = %Q{Helps ensure tag fields are stored as arrays in mongomodel even if serialized as a string from a client.}
   gem.email = "benn.hoffman@gmail.com"
   gem.authors = ["Ben Hoffman"]
   # dependencies defined in Gemfile
