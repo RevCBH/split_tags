@@ -14,7 +14,14 @@ module SplitTags
       doc = args[0]      
 
 			val = doc.send "#{@attribute}"
-			val = (val.map {|t| if (not t.nil?) && t.respond_to?(:split) then t.split(',') else t end }).flatten!
+			if val.respond_to? :map
+				val = (val.map {|t| if (not t.nil?) && t.respond_to?(:split) then t.split(',') else t end }).flatten!
+			else
+				val = val.to_s.split(',')
+			end
+
+			val.uniq!
+			val.select! {|x| not (x.nil? || x == "")}
 
 			doc.send "#{@attribute}=", val
 		end
