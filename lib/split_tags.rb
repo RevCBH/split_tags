@@ -20,8 +20,10 @@ module SplitTags
 				val = val.to_s.split(',')
 			end
 
-			val.uniq!
-			val.select! {|x| not (x.nil? || x == "")}
+			if not val.nil?
+				val.uniq!
+				val.select! {|x| not (x.nil? || x == "")}
+			end
 
 			doc.send "#{@attribute}=", val
 		end
