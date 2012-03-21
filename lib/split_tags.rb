@@ -12,14 +12,10 @@ module SplitTags
 		end
 
 		def before_save(*args)
-      doc = args[0]
-      puts "doc:"
-      pp doc
-      puts "args:"
-      pp args
+      doc = args[0]      
 
 			val = doc.send "#{@attribute}"
-			val = (val.map {|t| t.split ','}).flatten!
+			val = (val.map {|t| if (not t.nil?) && t.respond_to?(:split) then t.split(',') else t end }).flatten!
 
 			doc.send "#{@attribute}=", val
 		end

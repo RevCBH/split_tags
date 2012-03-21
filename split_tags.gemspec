@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "split_tags"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ben Hoffman"]
-  s.date = "2012-03-20"
+  s.date = "2012-03-21"
   s.description = "Helps ensure tag fields are stored as arrays in mongomodel even if serialized as a string from a client."
   s.email = "benn.hoffman@gmail.com"
   s.extra_rdoc_files = [
@@ -27,7 +27,8 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/split_tags.rb",
     "spec/spec_helper.rb",
-    "spec/split_tags_spec.rb"
+    "spec/split_tags_spec.rb",
+    "split_tags.gemspec"
   ]
   s.homepage = "http://github.com/RevCBH/split_tags"
   s.licenses = ["MIT"]
