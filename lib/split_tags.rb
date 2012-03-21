@@ -7,7 +7,6 @@ module SplitTags
 
 	class Splitter
 		def initialize(attr_name)
-      puts "creating splitter"
 			@attribute = attr_name
 		end
 
@@ -23,7 +22,6 @@ module SplitTags
 
 	module ClassMethods
 		def split_tags(*args)			
-			puts "split_tags: #{args}"
 			args.each do |t|
 				before_save Splitter.new(t.to_s)
 			end
