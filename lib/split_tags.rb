@@ -1,5 +1,3 @@
-require 'pp'
-
 module SplitTags
 	def self.included(base)
 		base.extend ClassMethods
@@ -11,7 +9,7 @@ module SplitTags
 		end
 
 		def before_save(*args)
-      doc = args[0]      
+      doc = args[0] # TODO - should work with just (doc) instead of (args*), etc.
 
 			val = doc.send "#{@attribute}"
 			if val.respond_to? :map
@@ -20,9 +18,10 @@ module SplitTags
 				val = val.to_s.split(',')
 			end
 
+			# TODO - this check shouldn't be needed
 			if not val.nil?
-				val.uniq!
-				val.select! {|x| not (x.nil? || x == "")}
+				val.uniq!				
+				val.reject! {|x| x.nil? || x == ""}
 			end
 
 			doc.send "#{@attribute}=", val
