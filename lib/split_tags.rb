@@ -9,8 +9,7 @@ module SplitTags
 		end
 
 		def before_save(*args)
-      doc = args[0] # TODO - should work with just (doc) instead of (args*), etc.
-      puts "split_tags before_save"
+      doc = args[0] # TODO - should work with just (doc) instead of (args*), etc.      
 
 			val = doc.send "#{@attribute}"
 			if val.respond_to? :map
